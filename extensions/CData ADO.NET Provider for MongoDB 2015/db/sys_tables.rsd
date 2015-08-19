@@ -1,0 +1,18 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+  <rsb:info title="sys_tables" description="This lists the available tables.">
+  <attr name="Id" />
+  <attr name="SchemaName" />
+  <attr name="CatalogName" />
+  <attr name="Type" />
+  <attr name="TableName" desc="The name of the table." />
+  </rsb:info>
+  
+  <rsb:script method="GET">
+    <rsb:push op="mongodbadoListTables"/>
+  </rsb:script>
+
+  <rsb:script method="POST">
+    <rsb:push op="mongodbadoCreateTable"/>
+  </rsb:script>
+
+</rsb:script>

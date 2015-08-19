@@ -1,0 +1,78 @@
+﻿@model IEnumerable<GitQuery.Models.Dbase>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Home</h1>
+<p>
+
+    <div class="well col-md-5">
+
+        <h3>My Databases</h3>
+        <table class="table">
+
+            @foreach (var item in Model)
+            {
+                <tr class="noBorder">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td class="text-center">
+                        <div class="col-md-offset-5"><a class="link-hover-color" href="/Dbases/Details/@item.ID"><u>Manage</u></a></div>
+                    </td>
+                </tr>
+            }
+
+
+        </table>
+        <div class="text-right">
+            <input type="button" value="Add New" onclick="location.href='@Url.Action("Create", "Dbases" )'" class="btn btn-default" />
+        </div>
+
+    </div>
+    <div class="col-md-2"></div>
+
+    <div class="col-md-5">
+        <div class="well">
+            <h3>Recent Queries</h3>
+            <table class="table">
+                @{
+                    if (ViewBag.Commits.Count == 0)
+                    {
+                        <tr>*no items to display, to make a new query select a database to manage.</tr>
+                    }
+                }
+
+                @foreach (var com in ViewBag.Commits)
+                {
+                    if (com.created_at.DayOfWeek != ViewBag.Day || com.ID == ViewBag.First.ID)
+                    {
+                        <tr class="noBorder">
+                            <th>
+                                <div class="text-center">
+                                    @com.created_at.ToString("dddd, MMM d")
+                                </div>
+                            </th>
+                        </tr>
+                        ViewBag.Day = com.created_at.DayOfWeek;
+                    }
+                    <tr class="noBorder">
+                        <td>
+                            <div class="text-left">
+                                @{String url = "/Commits/Details/" + com.ID;}
+                                <a href=@url><u>@com.name</u></a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-right">
+                                @com.created_at.ToString("t")
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+<p>*Click name for details</p>
+    </div>

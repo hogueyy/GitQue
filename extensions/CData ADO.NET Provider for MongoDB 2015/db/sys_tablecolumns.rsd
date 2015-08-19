@@ -1,0 +1,25 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+  <rsb:info title="sys_tablecolumns" description="This scripts lists the table columns.">
+    <attr name="ColumnName" desc="The name of the column." />
+    <attr name="IsKey" desc="Whether or not the column is a key."  />
+    <attr name="SystemDataType" desc="The data type of the column." />
+    <attr name="IsReadOnly" desc="Whether or not the column is read-only." />
+    <attr name="Description" desc="The description of the column." />
+
+    <input name="TableName" desc="The table name for which to list columns." />
+  </rsb:info>
+
+  <rsb:set attr="global.table" value=""/>
+  <rsb:check attr="_connection.detectDataTypes">
+    <rsb:set attr="global.detectDataTypes" value="[_connection.detectDataTypes]"/>
+  </rsb:check>
+  <rsb:check attr="_input.TableName">
+    <rsb:set attr="global.table" value="[_input.TableName]"/>
+    <rsb:else>
+      <rsb:throw code="500" desc="The table name must be provided."/>
+    </rsb:else>
+  </rsb:check>
+
+  <rsb:push op="mongodbadoListColumns" in="global"/>
+  
+</rsb:script>

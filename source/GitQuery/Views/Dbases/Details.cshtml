@@ -1,0 +1,66 @@
+﻿@model GitQuery.Models.Dbase
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.name</h1>
+<div>
+    @Html.ActionLink("Back", "Index")
+</div>
+
+<div class="col-md-5">
+    <div class="text-center">
+        <div class="text-center"><a class="btn btn-default btn-md" href="@Url.Action("New", "Commits")">New Query</a></div><p></p>
+        @if (Model.commits.Count != 0)
+        { 
+            <div class="text-center"><a class="btn btn-default btn-md" href="@Url.Action("Undo", "Commits")">Undo Query</a></div>
+        }
+    </div>
+</div>
+
+<div class="col-md-2"></div>
+
+<div class="col-md-5">
+    <div class="well">
+        <h3>Recent Queries</h3>
+        <table class="table">
+            @{
+                if (Model.commits.Count == 0)
+                {
+                    <tr>*no items to display, to make a query, click 'New Query'</tr>
+                }
+            }
+
+            @foreach (var com in Model.commits)
+            {
+                if (com.created_at.DayOfWeek != ViewBag.Day || com.ID == ViewBag.First.ID)
+                {
+                    <tr class="noBorder">
+                        <th>
+                            <div class="text-center">
+                                @com.created_at.ToString("dddd, MMM d")
+                            </div>
+                        </th>
+                    </tr>
+                    ViewBag.Day = com.created_at.DayOfWeek;
+                }
+                <tr class="noBorder">
+                    <td>
+                        <div class="text-left">
+                            @{String url = "/Commits/Details/" + com.ID;}
+                            <a href=@url>@com.name</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-center">
+                            @com.created_at.ToString("t")
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <p>*Click name for details</p>
+</div>

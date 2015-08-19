@@ -1,0 +1,34 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "aspx2-cs", ".", "{97C23E97-7DF6-4F47-9A26-99F797995D22}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv2.0"
+		Debug.AspNetCompiler.VirtualPath = "/cs"
+		Debug.AspNetCompiler.PhysicalPath = "..\cs\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\cs\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "true"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/cs"
+		Release.AspNetCompiler.PhysicalPath = "..\cs\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\cs\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "true"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1339"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97C23E97-7DF6-4F47-9A26-99F797995D22}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{97C23E97-7DF6-4F47-9A26-99F797995D22}.Debug|Any CPU.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

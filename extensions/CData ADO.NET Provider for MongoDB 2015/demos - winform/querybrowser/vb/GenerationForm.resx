@@ -1,0 +1,475 @@
+﻿<root>
+ 
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="addConnectionButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="addConnectionButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 437</value>
+  </data>
+  <data name="addConnectionButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="addConnectionButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="addConnectionButton.Text" xml:space="preserve">
+    <value>&amp;Add Connection</value>
+  </data>
+  <data name="&gt;&gt;addConnectionButton.Name" xml:space="preserve">
+    <value>addConnectionButton</value>
+  </data>
+  <data name="&gt;&gt;addConnectionButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;addConnectionButton.Parent" xml:space="preserve">
+    <value>connectionGroup</value>
+  </data>
+  <data name="&gt;&gt;addConnectionButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="connectionMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>321, 17</value>
+  </metadata>
+  <data name="newQueryMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="newQueryMenuItem.Text" xml:space="preserve">
+    <value>Query</value>
+  </data>
+  <data name="executeMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 19</value>
+  </data>
+  <data name="executeMenuItem.Text" xml:space="preserve">
+    <value>Execute</value>
+  </data>
+  <data name="toolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 6</value>
+  </data>
+  <data name="refreshToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="refreshToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Refresh</value>
+  </data>
+  <data name="connectionMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 76</value>
+  </data>
+  <data name="&gt;&gt;connectionMenu.Name" xml:space="preserve">
+    <value>connectionMenu</value>
+  </data>
+  <data name="&gt;&gt;connectionMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splitContainer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="splitContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="connectionGroup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="connectionView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="connectionView.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <metadata name="connectionImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>157, 17</value>
+  </metadata>
+  <data name="connectionImageList.ImageSize" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
+  </data>
+  <data name="connectionView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="connectionView.SelectedImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="connectionView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 383</value>
+  </data>
+  <data name="connectionView.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;connectionView.Name" xml:space="preserve">
+    <value>connectionView</value>
+  </data>
+  <data name="&gt;&gt;connectionView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;connectionView.Parent" xml:space="preserve">
+    <value>connectionGroup</value>
+  </data>
+  <data name="&gt;&gt;connectionView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="editConnectionButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="editConnectionButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="editConnectionButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 408</value>
+  </data>
+  <data name="editConnectionButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 23</value>
+  </data>
+  <data name="editConnectionButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="editConnectionButton.Text" xml:space="preserve">
+    <value>E&amp;dit Connection</value>
+  </data>
+  <data name="&gt;&gt;editConnectionButton.Name" xml:space="preserve">
+    <value>editConnectionButton</value>
+  </data>
+  <data name="&gt;&gt;editConnectionButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;editConnectionButton.Parent" xml:space="preserve">
+    <value>connectionGroup</value>
+  </data>
+  <data name="&gt;&gt;editConnectionButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="connectionGroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 3</value>
+  </data>
+  <data name="connectionGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 466</value>
+  </data>
+  <data name="connectionGroup.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="connectionGroup.Text" xml:space="preserve">
+    <value>Connections</value>
+  </data>
+  <data name="&gt;&gt;connectionGroup.Name" xml:space="preserve">
+    <value>connectionGroup</value>
+  </data>
+  <data name="&gt;&gt;connectionGroup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;connectionGroup.Parent" xml:space="preserve">
+    <value>splitContainer.Panel1</value>
+  </data>
+  <data name="&gt;&gt;connectionGroup.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer.Panel1.Name" xml:space="preserve">
+    <value>splitContainer.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer.Panel1.Parent" xml:space="preserve">
+    <value>splitContainer</value>
+  </data>
+  <data name="&gt;&gt;splitContainer.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="queryGroup.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="queryTabs.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="queryTabs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="queryTabs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>431, 441</value>
+  </data>
+  <data name="queryTabs.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;queryTabs.Name" xml:space="preserve">
+    <value>queryTabs</value>
+  </data>
+  <data name="&gt;&gt;queryTabs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;queryTabs.Parent" xml:space="preserve">
+    <value>queryGroup</value>
+  </data>
+  <data name="&gt;&gt;queryTabs.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="queryGroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="queryGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>443, 466</value>
+  </data>
+  <data name="queryGroup.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="queryGroup.Text" xml:space="preserve">
+    <value>Query</value>
+  </data>
+  <data name="&gt;&gt;queryGroup.Name" xml:space="preserve">
+    <value>queryGroup</value>
+  </data>
+  <data name="&gt;&gt;queryGroup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;queryGroup.Parent" xml:space="preserve">
+    <value>splitContainer.Panel2</value>
+  </data>
+  <data name="&gt;&gt;queryGroup.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer.Panel2.Name" xml:space="preserve">
+    <value>splitContainer.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer.Panel2.Parent" xml:space="preserve">
+    <value>splitContainer</value>
+  </data>
+  <data name="&gt;&gt;splitContainer.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>638, 469</value>
+  </data>
+  <data name="splitContainer.SplitterDistance" type="System.Int32, mscorlib">
+    <value>185</value>
+  </data>
+  <data name="splitContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer.Name" xml:space="preserve">
+    <value>splitContainer</value>
+  </data>
+  <data name="&gt;&gt;splitContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splitContainer.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="queryViewMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 22</value>
+  </data>
+  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="closeOthersToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="closeOthersToolStripMenuItem.Text" xml:space="preserve">
+    <value>Close Others</value>
+  </data>
+  <data name="queryViewMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 26</value>
+  </data>
+  <data name="&gt;&gt;queryViewMenu.Name" xml:space="preserve">
+    <value>queryViewMenu</value>
+  </data>
+  <data name="&gt;&gt;queryViewMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="procedurePage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="procedurePage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>423, 368</value>
+  </data>
+  <data name="procedurePage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="procedurePage.Text" xml:space="preserve">
+    <value>Output</value>
+  </data>
+  <data name="&gt;&gt;procedurePage.Name" xml:space="preserve">
+    <value>procedurePage</value>
+  </data>
+  <data name="&gt;&gt;procedurePage.Type" xml:space="preserve">
+    <value>CData.MongoDB.Demo.ProcedureTabPage, demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>662, 493</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>MongoDB Provider - Query Browser</value>
+  </data>
+  <data name="&gt;&gt;newQueryMenuItem.Name" xml:space="preserve">
+    <value>newQueryMenuItem</value>
+  </data>
+  <data name="&gt;&gt;newQueryMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;executeMenuItem.Name" xml:space="preserve">
+    <value>executeMenuItem</value>
+  </data>
+  <data name="&gt;&gt;executeMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator.Name" xml:space="preserve">
+    <value>toolStripSeparator</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;refreshToolStripMenuItem.Name" xml:space="preserve">
+    <value>refreshToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;refreshToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;connectionImageList.Name" xml:space="preserve">
+    <value>connectionImageList</value>
+  </data>
+  <data name="&gt;&gt;connectionImageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;closeToolStripMenuItem.Name" xml:space="preserve">
+    <value>closeToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;closeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;closeOthersToolStripMenuItem.Name" xml:space="preserve">
+    <value>closeOthersToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;closeOthersToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+    <data name="CONNECTION_ERROR" xml:space="preserve">
+    <value>Connection error, please check connection settings, and try to test connection.</value>
+  </data>
+  <data name="ERROR_MESSAGE_FORMAT" xml:space="preserve">
+    <value>Error occurred while executing [{0}]. Error message: {1}</value>
+  </data>
+  <data name="EXECUTING_MESSAGE_FORMAT" xml:space="preserve">
+    <value>Executing Stored Procedure [{0}]...</value>
+  </data>
+  <data name="FINISHED_MESSAGE_FORMAT" xml:space="preserve">
+    <value>Finished successful. Returned {0} row(s).</value>
+  </data>
+    <data name="INFO_NO_CHANGEDDATA" xml:space="preserve">
+    <value>There are no changes to save.</value>
+  </data>
+  <data name="REFRESH_TEXT" xml:space="preserve">
+    <value>[Refreshing...]</value>
+  </data>
+  <data name="TABPAGE_TITLE_FORMAT" xml:space="preserve">
+    <value>Query{0}</value>
+  </data>
+    <data name="CONNECTION_NAME_FORMAT" xml:space="preserve">
+    <value>Connection{0}</value>
+  </data>
+  <data name="ERROR_NO_CONNECTION" xml:space="preserve">
+    <value>You must establish a connection before this operation.</value>
+  </data>
+  <data name="ERROR_NO_QUERY" xml:space="preserve">
+    <value>Please specify a query.</value>
+  </data>
+  <data name="EXPANDING_TEXT" xml:space="preserve">
+    <value>[Expanding...]</value>
+  </data>
+  <data name="PROCEDURE_TEXT" xml:space="preserve">
+    <value>Stored Procedures</value>
+  </data>
+  <data name="TABLE_TEXT" xml:space="preserve">
+    <value>Tables</value>
+  </data>
+  <data name="VIEW_TEXT" xml:space="preserve">
+    <value>Views</value>
+  </data>
+  <data name="_deleteDataMenuItem.Text" xml:space="preserve">
+    <value>&amp;Delete</value>
+  </data>
+  <data name="_deleteToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Delete</value>
+  </data>
+  <data name="_executeButton.Text" xml:space="preserve">
+    <value>E&amp;xecute</value>
+  </data>
+  <data name="_saveButton.Text" xml:space="preserve">
+    <value>&amp;Save Changes</value>
+  </data>
+</root>

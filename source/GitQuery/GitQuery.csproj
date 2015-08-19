@@ -1,0 +1,996 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F35B899B-9501-43CA-B654-D81DE59C2CD5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GitQuery</RootNamespace>
+    <AssemblyName>GitQuery</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <NuGetPackageImportStamp>ef7cde44</NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId>/subscriptions/2ece25a5-3c80-4d7b-86cb-5745f158ef38/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/GitQuery</ApplicationInsightsResourceId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Extensibility.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.0.0\lib\net45\Microsoft.ApplicationInsights.Extensibility.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.0.0\lib\net45\Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Extensibility.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.0.0\lib\net45\Microsoft.ApplicationInsights.Extensibility.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Web.TelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.TelemetryChannel.1.0.0\lib\net45\Microsoft.ApplicationInsights.Web.TelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Diagnostics.Instrumentation.Extensions.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\lib\net45\Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.6\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\..\Users\Chris_Hogue\Desktop\GitQue\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>..\..\..\Users\Chris_Hogue\Desktop\GitQue\odp.net\managed\common\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.CData.MongoDB, Version=15.0.0.40, Culture=neutral, PublicKeyToken=cdc168f89cffe9cf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\Chris_Hogue\Desktop\GitQue\CData ADO.NET Provider for MongoDB 2015\lib\System.Data.CData.MongoDB.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommitsController.cs" />
+    <Compile Include="Controllers\DbasesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\QueryController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507011442282_initial.cs" />
+    <Compile Include="Migrations\201507011442282_initial.Designer.cs">
+      <DependentUpon>201507011442282_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507011748209_addAuthenticated.cs" />
+    <Compile Include="Migrations\201507011748209_addAuthenticated.Designer.cs">
+      <DependentUpon>201507011748209_addAuthenticated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507021333052_changeCurrentDB3.cs" />
+    <Compile Include="Migrations\201507021333052_changeCurrentDB3.Designer.cs">
+      <DependentUpon>201507021333052_changeCurrentDB3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507021610130_removeServerInfo.cs" />
+    <Compile Include="Migrations\201507021610130_removeServerInfo.Designer.cs">
+      <DependentUpon>201507021610130_removeServerInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507091308197_addBadCommit.cs" />
+    <Compile Include="Migrations\201507091308197_addBadCommit.Designer.cs">
+      <DependentUpon>201507091308197_addBadCommit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507171445501_deleteUsernameAndPass.cs" />
+    <Compile Include="Migrations\201507171445501_deleteUsernameAndPass.Designer.cs">
+      <DependentUpon>201507171445501_deleteUsernameAndPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507171511567_AddUserandPassBack.cs" />
+    <Compile Include="Migrations\201507171511567_AddUserandPassBack.Designer.cs">
+      <DependentUpon>201507171511567_AddUserandPassBack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507201255159_AddKey.cs" />
+    <Compile Include="Migrations\201507201255159_AddKey.Designer.cs">
+      <DependentUpon>201507201255159_AddKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507302036205_addDbType.cs" />
+    <Compile Include="Migrations\201507302036205_addDbType.Designer.cs">
+      <DependentUpon>201507302036205_addDbType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507311255207_changedbType.cs" />
+    <Compile Include="Migrations\201507311255207_changedbType.Designer.cs">
+      <DependentUpon>201507311255207_changedbType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Commit.cs" />
+    <Compile Include="Models\Dbase.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\MS.png" />
+    <Content Include="Images\MySQL.png" />
+    <Content Include="Images\Oracle.jpg" />
+    <Content Include="Images\PSQL.gif" />
+    <Content Include="Images\servers.jpg" />
+    <Content Include="Mist\light\404-2.html" />
+    <Content Include="Mist\light\404-3.html" />
+    <Content Include="Mist\light\404.html" />
+    <Content Include="Mist\light\about-us-2.html" />
+    <Content Include="Mist\light\about-us-3.html" />
+    <Content Include="Mist\light\about-us-4.html" />
+    <Content Include="Mist\light\about-us.html" />
+    <Content Include="Mist\light\animations.html" />
+    <Content Include="Mist\light\bootstrap-accordions.html" />
+    <Content Include="Mist\light\bootstrap-alerts.html" />
+    <Content Include="Mist\light\bootstrap-buttons.html" />
+    <Content Include="Mist\light\bootstrap-divst-group.html" />
+    <Content Include="Mist\light\bootstrap-forms.html" />
+    <Content Include="Mist\light\bootstrap-panels.html" />
+    <Content Include="Mist\light\bootstrap-tables.html" />
+    <Content Include="Mist\light\bootstrap-tabs.html" />
+    <Content Include="Mist\light\bootstrap-tooltips.html" />
+    <Content Include="Mist\light\bootstrap-typography.html" />
+    <Content Include="Mist\light\boxed.html" />
+    <Content Include="Mist\light\careers.html" />
+    <Content Include="Mist\light\carousel-slider-fade.html" />
+    <Content Include="Mist\light\carousel-slider.html" />
+    <Content Include="Mist\light\carousel.html" />
+    <Content Include="Mist\light\charts.html" />
+    <Content Include="Mist\light\columns.html" />
+    <Content Include="Mist\light\coming-soon.html" />
+    <Content Include="Mist\light\contact-2.html" />
+    <Content Include="Mist\light\contact-3.html" />
+    <Content Include="Mist\light\contact-4.html" />
+    <Content Include="Mist\light\contact-5.html" />
+    <Content Include="Mist\light\contact-6.html" />
+    <Content Include="Mist\light\contact.html" />
+    <Content Include="Mist\light\counters.html" />
+    <Content Include="Mist\light\css\animate.min.css" />
+    <Content Include="Mist\light\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Mist\light\css\bootstrap.min.css" />
+    <Content Include="Mist\light\css\color.css" />
+    <Content Include="Mist\light\css\fancySelect.css" />
+    <Content Include="Mist\light\css\font-awesome.css" />
+    <Content Include="Mist\light\css\font-awesome.min.css" />
+    <Content Include="Mist\light\css\grid-rotator.css" />
+    <Content Include="Mist\light\css\hover-dropdown-menu.css" />
+    <Content Include="Mist\light\css\icons.css" />
+    <Content Include="Mist\light\css\owl\owl.carousel.css" />
+    <Content Include="Mist\light\css\owl\owl.theme.css" />
+    <Content Include="Mist\light\css\owl\owl.transitions.css" />
+    <Content Include="Mist\light\css\photostack.css" />
+    <Content Include="Mist\light\css\prettyPhoto.css" />
+    <Content Include="Mist\light\css\responsive.css" />
+    <Content Include="Mist\light\css\revolution-slider.css" />
+    <Content Include="Mist\light\css\settings.css" />
+    <Content Include="Mist\light\css\style.css" />
+    <Content Include="Mist\light\css\video.css" />
+    <Content Include="Mist\light\email-template.html" />
+    <Content Include="Mist\light\faq.html" />
+    <Content Include="Mist\light\features.html" />
+    <Content Include="Mist\light\fonts\fontawesome-webfont.svg" />
+    <Content Include="Mist\light\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Mist\light\fonts\icomoon.svg" />
+    <Content Include="Mist\light\fonts\Pe-icon-set-interface.svg" />
+    <Content Include="Mist\light\fonts\Pe-icon-social.svg" />
+    <Content Include="Mist\light\fonts\revicons.svg" />
+    <Content Include="Mist\light\footer1.html" />
+    <Content Include="Mist\light\footer10.html" />
+    <Content Include="Mist\light\footer2.html" />
+    <Content Include="Mist\light\footer3.html" />
+    <Content Include="Mist\light\footer4.html" />
+    <Content Include="Mist\light\footer5.html" />
+    <Content Include="Mist\light\footer6.html" />
+    <Content Include="Mist\light\footer7.html" />
+    <Content Include="Mist\light\footer8.html" />
+    <Content Include="Mist\light\footer9.html" />
+    <Content Include="Mist\light\full-width-wide.html" />
+    <Content Include="Mist\light\full-width.html" />
+    <Content Include="Mist\light\header1.html" />
+    <Content Include="Mist\light\header10.html" />
+    <Content Include="Mist\light\header11.html" />
+    <Content Include="Mist\light\header12.html" />
+    <Content Include="Mist\light\header13.html" />
+    <Content Include="Mist\light\header14.html" />
+    <Content Include="Mist\light\header15.html" />
+    <Content Include="Mist\light\header16.html" />
+    <Content Include="Mist\light\header17.html" />
+    <Content Include="Mist\light\header18.html" />
+    <Content Include="Mist\light\header19.html" />
+    <Content Include="Mist\light\header2.html" />
+    <Content Include="Mist\light\header20.html" />
+    <Content Include="Mist\light\header21.html" />
+    <Content Include="Mist\light\header22.html" />
+    <Content Include="Mist\light\header23.html" />
+    <Content Include="Mist\light\header24.html" />
+    <Content Include="Mist\light\header25.html" />
+    <Content Include="Mist\light\header26.html" />
+    <Content Include="Mist\light\header3.html" />
+    <Content Include="Mist\light\header4.html" />
+    <Content Include="Mist\light\header5.html" />
+    <Content Include="Mist\light\header6.html" />
+    <Content Include="Mist\light\header7.html" />
+    <Content Include="Mist\light\header8.html" />
+    <Content Include="Mist\light\header9.html" />
+    <Content Include="Mist\light\icons.html" />
+    <Content Include="Mist\light\img\avatar.png" />
+    <Content Include="Mist\light\img\blank.gif" />
+    <Content Include="Mist\light\img\comment-link.png" />
+    <Content Include="Mist\light\img\down.png" />
+    <Content Include="Mist\light\img\eng-flag.png" />
+    <Content Include="Mist\light\img\favicon.ico" />
+    <Content Include="Mist\light\img\fra-flag.png" />
+    <Content Include="Mist\light\img\ger-flag.png" />
+    <Content Include="Mist\light\img\jslider.png" />
+    <Content Include="Mist\light\img\logo.png" />
+    <Content Include="Mist\light\img\map-marker.png" />
+    <Content Include="Mist\light\img\patterns\pattern.png" />
+    <Content Include="Mist\light\img\patterns\pattern2.png" />
+    <Content Include="Mist\light\img\placehold.jpg" />
+    <Content Include="Mist\light\img\point.png" />
+    <Content Include="Mist\light\img\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Mist\light\img\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Mist\light\img\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Mist\light\img\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="Mist\light\img\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Mist\light\img\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Mist\light\img\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Mist\light\img\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Mist\light\img\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="Mist\light\img\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="Mist\light\img\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Mist\light\img\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Mist\light\img\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Mist\light\img\prettyPhoto\default\loader.gif" />
+    <Content Include="Mist\light\img\prettyPhoto\default\sprite.png" />
+    <Content Include="Mist\light\img\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Mist\light\img\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Mist\light\img\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Mist\light\img\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Mist\light\img\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Mist\light\img\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Mist\light\img\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="Mist\light\img\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Mist\light\img\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Mist\light\img\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Mist\light\img\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Mist\light\img\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="Mist\light\img\prettyPhoto\light_square\loader.gif" />
+    <Content Include="Mist\light\img\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Mist\light\img\sections\grid\1.jpg" />
+    <Content Include="Mist\light\img\sections\grid\10.jpg" />
+    <Content Include="Mist\light\img\sections\grid\11.jpg" />
+    <Content Include="Mist\light\img\sections\grid\12.jpg" />
+    <Content Include="Mist\light\img\sections\grid\13.jpg" />
+    <Content Include="Mist\light\img\sections\grid\14.jpg" />
+    <Content Include="Mist\light\img\sections\grid\15.jpg" />
+    <Content Include="Mist\light\img\sections\grid\16.jpg" />
+    <Content Include="Mist\light\img\sections\grid\17.jpg" />
+    <Content Include="Mist\light\img\sections\grid\18.jpg" />
+    <Content Include="Mist\light\img\sections\grid\19.jpg" />
+    <Content Include="Mist\light\img\sections\grid\2.jpg" />
+    <Content Include="Mist\light\img\sections\grid\20.jpg" />
+    <Content Include="Mist\light\img\sections\grid\21.jpg" />
+    <Content Include="Mist\light\img\sections\grid\22.jpg" />
+    <Content Include="Mist\light\img\sections\grid\23.jpg" />
+    <Content Include="Mist\light\img\sections\grid\24.jpg" />
+    <Content Include="Mist\light\img\sections\grid\25.jpg" />
+    <Content Include="Mist\light\img\sections\grid\26.jpg" />
+    <Content Include="Mist\light\img\sections\grid\27.jpg" />
+    <Content Include="Mist\light\img\sections\grid\3.jpg" />
+    <Content Include="Mist\light\img\sections\grid\4.jpg" />
+    <Content Include="Mist\light\img\sections\grid\5.jpg" />
+    <Content Include="Mist\light\img\sections\grid\6.jpg" />
+    <Content Include="Mist\light\img\sections\grid\7.jpg" />
+    <Content Include="Mist\light\img\sections\grid\8.jpg" />
+    <Content Include="Mist\light\img\sections\grid\9.jpg" />
+    <Content Include="Mist\light\img\sections\slider\arrow-left.png" />
+    <Content Include="Mist\light\img\sections\slider\arrow-right.png" />
+    <Content Include="Mist\light\img\sections\slider\bakery-1.jpg" />
+    <Content Include="Mist\light\img\sections\slider\bakery-2.jpg" />
+    <Content Include="Mist\light\img\sections\slider\bakery-3.jpg" />
+    <Content Include="Mist\light\img\sections\slider\deal.png" />
+    <Content Include="Mist\light\img\sections\slider\doctor.jpg" />
+    <Content Include="Mist\light\img\sections\slider\hosting-slide1.jpg" />
+    <Content Include="Mist\light\img\sections\slider\hosting-slide2.jpg" />
+    <Content Include="Mist\light\img\sections\slider\hosting-slide3.jpg" />
+    <Content Include="Mist\light\img\sections\slider\model.png" />
+    <Content Include="Mist\light\img\sections\slider\offer.png" />
+    <Content Include="Mist\light\img\sections\slider\port-1.jpg" />
+    <Content Include="Mist\light\img\sections\slider\port-2.jpg" />
+    <Content Include="Mist\light\img\sections\slider\port-3.jpg" />
+    <Content Include="Mist\light\img\sections\slider\port-4.jpg" />
+    <Content Include="Mist\light\img\sections\slider\rs-1.jpg" />
+    <Content Include="Mist\light\img\sections\slider\rs-2.jpg" />
+    <Content Include="Mist\light\img\sections\slider\rs-3.jpg" />
+    <Content Include="Mist\light\img\sections\slider\rs-4.jpg" />
+    <Content Include="Mist\light\img\sections\slider\rs-5.jpg" />
+    <Content Include="Mist\light\img\sections\slider\rs-6.jpg" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider1-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider1-bootstrap.png" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider1-css3.png" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider1-html5.png" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider1-img2.png" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider2-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider2-four.png" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider2-img.png" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider2-one.png" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider2-three.png" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider2-two.png" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider3-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\rs-slider4-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\saloon-1.jpg" />
+    <Content Include="Mist\light\img\sections\slider\saloon-2.jpg" />
+    <Content Include="Mist\light\img\sections\slider\saloon-3.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider1-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider10-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider11-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider12-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider13-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider14-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider15-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider16-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider17-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider18-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider19-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider2-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider20-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider20-bg1.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider21-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider22-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider22-bg2.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider23-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider24-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider25-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider26-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider27-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider28-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider29-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider3-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider30-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider31-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider32-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider33-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider34-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider35-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider36-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider37-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider38-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider39-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider4-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider40-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider41-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider5-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider6-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider7-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider8-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\slider9-bg.jpg" />
+    <Content Include="Mist\light\img\sections\slider\student-1.png" />
+    <Content Include="Mist\light\img\sections\slider\student.png" />
+    <Content Include="Mist\light\img\sections\slider\travel-1.jpg" />
+    <Content Include="Mist\light\img\sections\slider\travel-2.jpg" />
+    <Content Include="Mist\light\img\sections\slider\travel-3.jpg" />
+    <Content Include="Mist\light\img\up.png" />
+    <Content Include="Mist\light\index-agency.html" />
+    <Content Include="Mist\light\index-app.html" />
+    <Content Include="Mist\light\index-architect.html" />
+    <Content Include="Mist\light\index-bakery.html" />
+    <Content Include="Mist\light\index-band.html" />
+    <Content Include="Mist\light\index-blog.html" />
+    <Content Include="Mist\light\index-business.html" />
+    <Content Include="Mist\light\index-charity.html" />
+    <Content Include="Mist\light\index-corporate.html" />
+    <Content Include="Mist\light\index-creative.html" />
+    <Content Include="Mist\light\index-fashion.html" />
+    <Content Include="Mist\light\index-freelancer.html" />
+    <Content Include="Mist\light\index-hosting.html" />
+    <Content Include="Mist\light\index-law.html" />
+    <Content Include="Mist\light\index-magazine.html" />
+    <Content Include="Mist\light\index-medical.html" />
+    <Content Include="Mist\light\index-motors.html" />
+    <Content Include="Mist\light\index-onepage-agency.html" />
+    <Content Include="Mist\light\index-onepage-app.html" />
+    <Content Include="Mist\light\index-onepage-architect.html" />
+    <Content Include="Mist\light\index-onepage-bakery.html" />
+    <Content Include="Mist\light\index-onepage-band.html" />
+    <Content Include="Mist\light\index-onepage-books.html" />
+    <Content Include="Mist\light\index-onepage-business.html" />
+    <Content Include="Mist\light\index-onepage-charity.html" />
+    <Content Include="Mist\light\index-onepage-corporate.html" />
+    <Content Include="Mist\light\index-onepage-creative.html" />
+    <Content Include="Mist\light\index-onepage-events.html" />
+    <Content Include="Mist\light\index-onepage-fashion.html" />
+    <Content Include="Mist\light\index-onepage-food.html" />
+    <Content Include="Mist\light\index-onepage-freelancer.html" />
+    <Content Include="Mist\light\index-onepage-hosting.html" />
+    <Content Include="Mist\light\index-onepage-law.html" />
+    <Content Include="Mist\light\index-onepage-mailchimp.html" />
+    <Content Include="Mist\light\index-onepage-medical.html" />
+    <Content Include="Mist\light\index-onepage-motors.html" />
+    <Content Include="Mist\light\index-onepage-portfolio.html" />
+    <Content Include="Mist\light\index-onepage-realestate.html" />
+    <Content Include="Mist\light\index-onepage-register.html" />
+    <Content Include="Mist\light\index-onepage-restaurant.html" />
+    <Content Include="Mist\light\index-onepage-saloon.html" />
+    <Content Include="Mist\light\index-onepage-spa.html" />
+    <Content Include="Mist\light\index-onepage-sports.html" />
+    <Content Include="Mist\light\index-onepage-studio.html" />
+    <Content Include="Mist\light\index-onepage-travel.html" />
+    <Content Include="Mist\light\index-onepage-university.html" />
+    <Content Include="Mist\light\index-onepage-video.html" />
+    <Content Include="Mist\light\index-onepage-wedding.html" />
+    <Content Include="Mist\light\index-online-shop.html" />
+    <Content Include="Mist\light\index-portfolio.html" />
+    <Content Include="Mist\light\index-real-estate.html" />
+    <Content Include="Mist\light\index-restaurant.html" />
+    <Content Include="Mist\light\index-saloon.html" />
+    <Content Include="Mist\light\index-spa.html" />
+    <Content Include="Mist\light\index-sports.html" />
+    <Content Include="Mist\light\index-studio.html" />
+    <Content Include="Mist\light\index-travel.html" />
+    <Content Include="Mist\light\index-university.html" />
+    <Content Include="Mist\light\index-wedding.html" />
+    <Content Include="Mist\light\index.html" />
+    <Content Include="Mist\light\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Mist\light\js\bootstrap.min.js" />
+    <Content Include="Mist\light\js\bootstrapValidator.min.js" />
+    <Content Include="Mist\light\js\charts.js" />
+    <Content Include="Mist\light\js\countdown.js" />
+    <Content Include="Mist\light\js\custom.js" />
+    <Content Include="Mist\light\js\effect.js" />
+    <Content Include="Mist\light\js\fancySelect.js" />
+    <Content Include="Mist\light\js\hover-dropdown-menu.js" />
+    <Content Include="Mist\light\js\isotope.min.js" />
+    <Content Include="Mist\light\js\jquery.appear.js" />
+    <Content Include="Mist\light\js\jquery.countTo.js" />
+    <Content Include="Mist\light\js\jquery.easing.1.3.js" />
+    <Content Include="Mist\light\js\jquery.easy-ticker.min.js" />
+    <Content Include="Mist\light\js\jquery.easypiechart.min.js" />
+    <Content Include="Mist\light\js\jquery.elevateZoom-3.0.8.min.js" />
+    <Content Include="Mist\light\js\jquery.gridrotator.js" />
+    <Content Include="Mist\light\js\jquery.hover-dropdown-menu-addon.js" />
+    <Content Include="Mist\light\js\jquery.mb.YTPlayer.js" />
+    <Content Include="Mist\light\js\jquery.migrate.js" />
+    <Content Include="Mist\light\js\jquery.min.js" />
+    <Content Include="Mist\light\js\jquery.mixitup.min.js" />
+    <Content Include="Mist\light\js\jquery.parallax-1.1.3.js" />
+    <Content Include="Mist\light\js\jquery.prettyPhoto.js" />
+    <Content Include="Mist\light\js\jquery.sticky.js" />
+    <Content Include="Mist\light\js\jquery.superslides.js" />
+    <Content Include="Mist\light\js\masonry.pkgd.min.js" />
+    <Content Include="Mist\light\js\modernizr.js" />
+    <Content Include="Mist\light\js\moment.js" />
+    <Content Include="Mist\light\js\owl.carousel.min.js" />
+    <Content Include="Mist\light\js\photostack.js" />
+    <Content Include="Mist\light\js\price-filter.js" />
+    <Content Include="Mist\light\js\retina.min.js" />
+    <Content Include="Mist\light\js\revolution-custom.js" />
+    <Content Include="Mist\light\js\revolution\jquery.zozothemes.plugins.min.js" />
+    <Content Include="Mist\light\js\revolution\jquery.zozothemes.revolution.min.js" />
+    <Content Include="Mist\light\js\smoothscroll.js" />
+    <Content Include="Mist\light\js\socialstream.jquery.js" />
+    <Content Include="Mist\light\js\tweet\carousel.js" />
+    <Content Include="Mist\light\js\tweet\scripts.js" />
+    <Content Include="Mist\light\js\tweet\tweetie.min.js" />
+    <Content Include="Mist\light\js\typed.js" />
+    <Content Include="Mist\light\js\video.js" />
+    <Content Include="Mist\light\left-right-sidebar.html" />
+    <Content Include="Mist\light\left-sidebar.html" />
+    <Content Include="Mist\light\left2-sidebar.html" />
+    <Content Include="Mist\light\local-video-bg.html" />
+    <Content Include="Mist\light\login.html" />
+    <Content Include="Mist\light\maintenance.html" />
+    <Content Include="Mist\light\maps.html" />
+    <Content Include="Mist\light\owl-slider-backslide.html" />
+    <Content Include="Mist\light\owl-slider-fade.html" />
+    <Content Include="Mist\light\owl-slider-fadeup.html" />
+    <Content Include="Mist\light\owl-slider-godown.html" />
+    <Content Include="Mist\light\owl-slider.html" />
+    <Content Include="Mist\light\page-sidebar.html" />
+    <Content Include="Mist\light\pagetitle-center.html" />
+    <Content Include="Mist\light\pagetitle-dark.html" />
+    <Content Include="Mist\light\pagetitle-default.html" />
+    <Content Include="Mist\light\pagetitle-left.html" />
+    <Content Include="Mist\light\pagetitle-mini.html" />
+    <Content Include="Mist\light\pagetitle-parallax.html" />
+    <Content Include="Mist\light\pagetitle-pattern.html" />
+    <Content Include="Mist\light\pagetitle-right.html" />
+    <Content Include="Mist\light\pagetitle-transparent-header.html" />
+    <Content Include="Mist\light\pagetitle-video.html" />
+    <Content Include="Mist\light\parallax-slider.html" />
+    <Content Include="Mist\light\pie-skills.html" />
+    <Content Include="Mist\light\portfolio-extended.html" />
+    <Content Include="Mist\light\portfolio-grid-2-full-width-gutter.html" />
+    <Content Include="Mist\light\portfolio-grid-2-full-width.html" />
+    <Content Include="Mist\light\portfolio-grid-2-gutter.html" />
+    <Content Include="Mist\light\portfolio-grid-2.html" />
+    <Content Include="Mist\light\portfolio-grid-3-full-width-gutter.html" />
+    <Content Include="Mist\light\portfolio-grid-3-full-width.html" />
+    <Content Include="Mist\light\portfolio-grid-3-gutter.html" />
+    <Content Include="Mist\light\portfolio-grid-3.html" />
+    <Content Include="Mist\light\portfolio-grid-4-full-width-gutter.html" />
+    <Content Include="Mist\light\portfolio-grid-4-full-width.html" />
+    <Content Include="Mist\light\portfolio-grid-4-gutter.html" />
+    <Content Include="Mist\light\portfolio-grid-4.html" />
+    <Content Include="Mist\light\portfolio-grid-6-gutter.html" />
+    <Content Include="Mist\light\portfolio-list.html" />
+    <Content Include="Mist\light\portfolio-masonry-2-full-width-gutter.html" />
+    <Content Include="Mist\light\portfolio-masonry-2-full-width.html" />
+    <Content Include="Mist\light\portfolio-masonry-2-gutter.html" />
+    <Content Include="Mist\light\portfolio-masonry-2.html" />
+    <Content Include="Mist\light\portfolio-masonry-3-full-width-gutter.html" />
+    <Content Include="Mist\light\portfolio-masonry-3-full-width.html" />
+    <Content Include="Mist\light\portfolio-masonry-3-gutter.html" />
+    <Content Include="Mist\light\portfolio-masonry-3.html" />
+    <Content Include="Mist\light\portfolio-masonry-4-full-width-gutter.html" />
+    <Content Include="Mist\light\portfolio-masonry-4-full-width.html" />
+    <Content Include="Mist\light\portfolio-masonry-4-gutter.html" />
+    <Content Include="Mist\light\portfolio-masonry-4.html" />
+    <Content Include="Mist\light\portfolio-masonry-full-width.html" />
+    <Content Include="Mist\light\portfolio-parallax.html" />
+    <Content Include="Mist\light\portfolio-single.html" />
+    <Content Include="Mist\light\prettyPhoto.css" />
+    <Content Include="Mist\light\pricing.html" />
+    <Content Include="Mist\light\revolution-slider-1.html" />
+    <Content Include="Mist\light\revolution-slider-2.html" />
+    <Content Include="Mist\light\revolution-slider-3.html" />
+    <Content Include="Mist\light\revolution-slider-4.html" />
+    <Content Include="Mist\light\revolution-slider.html" />
+    <Content Include="Mist\light\right-sidebar.html" />
+    <Content Include="Mist\light\right2-sidebar.html" />
+    <Content Include="Mist\light\rs-plugin\assets\arrowleft.png" />
+    <Content Include="Mist\light\rs-plugin\assets\arrowright.png" />
+    <Content Include="Mist\light\rs-plugin\assets\arrow_large_left.png" />
+    <Content Include="Mist\light\rs-plugin\assets\arrow_large_right.png" />
+    <Content Include="Mist\light\rs-plugin\assets\arrow_left.png" />
+    <Content Include="Mist\light\rs-plugin\assets\arrow_left2.png" />
+    <Content Include="Mist\light\rs-plugin\assets\arrow_right.png" />
+    <Content Include="Mist\light\rs-plugin\assets\arrow_right2.png" />
+    <Content Include="Mist\light\rs-plugin\assets\black50.png" />
+    <Content Include="Mist\light\rs-plugin\assets\boxed_bgtile.png" />
+    <Content Include="Mist\light\rs-plugin\assets\bullet.png" />
+    <Content Include="Mist\light\rs-plugin\assets\bullets.png" />
+    <Content Include="Mist\light\rs-plugin\assets\bullets2.png" />
+    <Content Include="Mist\light\rs-plugin\assets\bullet_boxed.png" />
+    <Content Include="Mist\light\rs-plugin\assets\coloredbg.png" />
+    <Content Include="Mist\light\rs-plugin\assets\grain.png" />
+    <Content Include="Mist\light\rs-plugin\assets\gridtile.png" />
+    <Content Include="Mist\light\rs-plugin\assets\gridtile_3x3.png" />
+    <Content Include="Mist\light\rs-plugin\assets\gridtile_3x3_white.png" />
+    <Content Include="Mist\light\rs-plugin\assets\gridtile_white.png" />
+    <Content Include="Mist\light\rs-plugin\assets\large_left.png" />
+    <Content Include="Mist\light\rs-plugin\assets\large_right.png" />
+    <Content Include="Mist\light\rs-plugin\assets\loader.gif" />
+    <Content Include="Mist\light\rs-plugin\assets\loader2.gif" />
+    <Content Include="Mist\light\rs-plugin\assets\navigdots.png" />
+    <Content Include="Mist\light\rs-plugin\assets\navigdots_bgtile.png" />
+    <Content Include="Mist\light\rs-plugin\assets\shadow1.png" />
+    <Content Include="Mist\light\rs-plugin\assets\shadow2.png" />
+    <Content Include="Mist\light\rs-plugin\assets\shadow3.png" />
+    <Content Include="Mist\light\rs-plugin\assets\small_left.png" />
+    <Content Include="Mist\light\rs-plugin\assets\small_left_boxed.png" />
+    <Content Include="Mist\light\rs-plugin\assets\small_right.png" />
+    <Content Include="Mist\light\rs-plugin\assets\small_right_boxed.png" />
+    <Content Include="Mist\light\rs-plugin\assets\timer.png" />
+    <Content Include="Mist\light\rs-plugin\assets\timerdot.png" />
+    <Content Include="Mist\light\rs-plugin\assets\transparent.jpg" />
+    <Content Include="Mist\light\rs-plugin\assets\white50.png" />
+    <Content Include="Mist\light\rs-plugin\css\settings-ie8.css" />
+    <Content Include="Mist\light\rs-plugin\css\settings.css" />
+    <Content Include="Mist\light\rs-plugin\font\revicons.svg" />
+    <Content Include="Mist\light\rs-plugin\images\decor_inside.png" />
+    <Content Include="Mist\light\rs-plugin\images\decor_inside_white.png" />
+    <Content Include="Mist\light\rs-plugin\images\decor_testimonial.png" />
+    <Content Include="Mist\light\rs-plugin\images\gradient\g30.png" />
+    <Content Include="Mist\light\rs-plugin\images\gradient\g40.png" />
+    <Content Include="Mist\light\rs-plugin\js\jquery.themepunch.enablelog.js" />
+    <Content Include="Mist\light\rs-plugin\js\jquery.themepunch.revolution.js" />
+    <Content Include="Mist\light\rs-plugin\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Mist\light\rs-plugin\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Mist\light\services-2.html" />
+    <Content Include="Mist\light\services-3.html" />
+    <Content Include="Mist\light\services-4.html" />
+    <Content Include="Mist\light\services-5.html" />
+    <Content Include="Mist\light\services-6.html" />
+    <Content Include="Mist\light\services.html" />
+    <Content Include="Mist\light\shop-grid-2-both-sidebar.html" />
+    <Content Include="Mist\light\shop-grid-2-left-sidebar.html" />
+    <Content Include="Mist\light\shop-grid-2-right-sidebar.html" />
+    <Content Include="Mist\light\shop-grid-3-left-sidebar.html" />
+    <Content Include="Mist\light\shop-grid-3-right-sidebar.html" />
+    <Content Include="Mist\light\shop-grid-3.html" />
+    <Content Include="Mist\light\shop-grid-4.html" />
+    <Content Include="Mist\light\shop-list-left-sidebar.html" />
+    <Content Include="Mist\light\shop-list-right-sidebar.html" />
+    <Content Include="Mist\light\shop-list.html" />
+    <Content Include="Mist\light\shop-sidebar.html" />
+    <Content Include="Mist\light\shop-single-fullwidth.html" />
+    <Content Include="Mist\light\shop-single-left-sidebar.html" />
+    <Content Include="Mist\light\shop-single-right-sidebar.html" />
+    <Content Include="Mist\light\side-nav.html" />
+    <Content Include="Mist\light\sitemap.html" />
+    <Content Include="Mist\light\social-icons.html" />
+    <Content Include="Mist\light\style.css" />
+    <Content Include="Mist\light\tabs.html" />
+    <Content Include="Mist\light\team.html" />
+    <Content Include="Mist\light\testimonials.html" />
+    <Content Include="Mist\light\text-slider.html" />
+    <Content Include="Mist\light\time-line-left-sidebar.html" />
+    <Content Include="Mist\light\time-line-right-sidebar.html" />
+    <Content Include="Mist\light\time-line.html" />
+    <Content Include="Mist\light\video-bg.html" />
+    <Content Include="Mist\light\videobg-slider.html" />
+    <Content Include="Mist\light\video\video.mp4" />
+    <Content Include="Mist\light\youtube-video-bg.html" />
+    <Content Include="Scripts\ai.0.15.0-build30412.js" />
+    <Content Include="Scripts\ai.0.15.0-build30412.min.js" />
+    <Content Include="Scripts\Bases.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config" />
+    <Content Include="Mist\light\.htaccess" />
+    <Content Include="Mist\light\api\config.php" />
+    <Content Include="Mist\light\api\error_log" />
+    <Content Include="Mist\light\api\tweet.php" />
+    <Content Include="Mist\light\api\twitteroauth\OAuth.php" />
+    <Content Include="Mist\light\api\twitteroauth\twitteroauth.php" />
+    <Content Include="Mist\light\fonts\fontawesome-webfont.eot" />
+    <Content Include="Mist\light\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Mist\light\fonts\fontawesome-webfont.woff" />
+    <Content Include="Mist\light\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Mist\light\fonts\FontAwesome.otf" />
+    <Content Include="Mist\light\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Mist\light\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Mist\light\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Mist\light\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Mist\light\fonts\icomoon.eot" />
+    <Content Include="Mist\light\fonts\icomoon.ttf" />
+    <Content Include="Mist\light\fonts\icomoon.woff" />
+    <Content Include="Mist\light\fonts\Pe-icon-set-interface.eot" />
+    <Content Include="Mist\light\fonts\Pe-icon-set-interface.ttf" />
+    <Content Include="Mist\light\fonts\Pe-icon-set-interface.woff" />
+    <Content Include="Mist\light\fonts\Pe-icon-social.eot" />
+    <Content Include="Mist\light\fonts\Pe-icon-social.ttf" />
+    <Content Include="Mist\light\fonts\Pe-icon-social.woff" />
+    <Content Include="Mist\light\fonts\revicons.eot" />
+    <Content Include="Mist\light\fonts\revicons.ttf" />
+    <Content Include="Mist\light\fonts\revicons.woff" />
+    <Content Include="Mist\light\light.zip" />
+    <Content Include="Mist\light\php\career.php" />
+    <Content Include="Mist\light\php\contact-form.php" />
+    <Content Include="Mist\light\php\error_log" />
+    <Content Include="Mist\light\php\MCAPI.class.php" />
+    <Content Include="Mist\light\php\register-book.php" />
+    <Content Include="Mist\light\php\register-form.php" />
+    <Content Include="Mist\light\php\subscription.php" />
+    <Content Include="Mist\light\rs-plugin\assets\arrows.psd" />
+    <Content Include="Mist\light\rs-plugin\assets\bullets.psd" />
+    <Content Include="Mist\light\rs-plugin\assets\small_arrows.psd" />
+    <Content Include="Mist\light\rs-plugin\font\revicons.eot" />
+    <Content Include="Mist\light\rs-plugin\font\revicons.ttf" />
+    <Content Include="Mist\light\rs-plugin\font\revicons.woff" />
+    <Content Include="Mist\light\video\video.webm" />
+    <None Include="Properties\PublishProfiles\GitQuery.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Commits.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jscroll\Gruntfile.js" />
+    <Content Include="Scripts\jscroll\jquery.jscroll.js" />
+    <Content Include="Scripts\jscroll\jquery.jscroll.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Commits\Create.cshtml" />
+    <Content Include="Views\Commits\Delete.cshtml" />
+    <Content Include="Views\Commits\Details.cshtml" />
+    <Content Include="Views\Commits\Edit.cshtml" />
+    <Content Include="Views\Commits\Index.cshtml" />
+    <Content Include="Views\Dbases\Create.cshtml" />
+    <Content Include="Views\Dbases\Delete.cshtml" />
+    <Content Include="Views\Dbases\Details.cshtml" />
+    <Content Include="Views\Dbases\Edit.cshtml" />
+    <Content Include="Views\Dbases\Index.cshtml" />
+    <Content Include="Views\Commits\New.cshtml" />
+    <Content Include="Views\Commits\Undo.cshtml" />
+    <Content Include="Views\Dbases\Error.cshtml" />
+    <Content Include="Scripts\jscroll\.gitignore" />
+    <Content Include="Scripts\jscroll\.travis.yml" />
+    <Content Include="Scripts\jscroll\bower.json" />
+    <Content Include="Scripts\jscroll\package.json" />
+    <Content Include="Scripts\jscroll\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Mist\light\img\large\" />
+    <Folder Include="Mist\light\img\sections\about\" />
+    <Folder Include="Mist\light\img\sections\bakery-menu\" />
+    <Folder Include="Mist\light\img\sections\bg\" />
+    <Folder Include="Mist\light\img\sections\blog\" />
+    <Folder Include="Mist\light\img\sections\clients\" />
+    <Folder Include="Mist\light\img\sections\email\" />
+    <Folder Include="Mist\light\img\sections\New folder\" />
+    <Folder Include="Mist\light\img\sections\portfolio\" />
+    <Folder Include="Mist\light\img\sections\screens\" />
+    <Folder Include="Mist\light\img\sections\services\" />
+    <Folder Include="Mist\light\img\sections\shop\" />
+    <Folder Include="Mist\light\img\sections\speaker\" />
+    <Folder Include="Mist\light\img\sections\testimonials\" />
+    <Folder Include="Mist\light\img\small\" />
+    <Folder Include="Views\Query\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201507011442282_initial.resx">
+      <DependentUpon>201507011442282_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507011748209_addAuthenticated.resx">
+      <DependentUpon>201507011748209_addAuthenticated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507021333052_changeCurrentDB3.resx">
+      <DependentUpon>201507021333052_changeCurrentDB3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507021610130_removeServerInfo.resx">
+      <DependentUpon>201507021610130_removeServerInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507091308197_addBadCommit.resx">
+      <DependentUpon>201507091308197_addBadCommit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507171445501_deleteUsernameAndPass.resx">
+      <DependentUpon>201507171445501_deleteUsernameAndPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507171511567_AddUserandPassBack.resx">
+      <DependentUpon>201507171511567_AddUserandPassBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507201255159_AddKey.resx">
+      <DependentUpon>201507201255159_AddKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507302036205_addDbType.resx">
+      <DependentUpon>201507302036205_addDbType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507311255207_changedbType.resx">
+      <DependentUpon>201507311255207_changedbType.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53968</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44300/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,99 @@
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4D2EA24F-A25A-4D0D-9D51-ADD566E4079F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>CData.MongoDB.Demo.GenerationForm</StartupObject>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>demo</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>demo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>demo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.CData.MongoDB, Version=3.0.0.0, Culture=neutral, PublicKeyToken=cdc168f89cffe9cf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\System.Data.CData.MongoDB.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connection.vb" />
+    <Compile Include="ConnectionStringForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenerationForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParameterForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.vb" />
+    <Compile Include="Resource.Designer.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GenerationForm.resx">
+      <DependentUpon>GenerationForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParameterForm.resx">
+      <DependentUpon>ParameterForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConnectionStringForm.resx">
+      <DependentUpon>ConnectionStringForm.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" /></Project>

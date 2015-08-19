@@ -1,0 +1,125 @@
+﻿@model IEnumerable<GitQuery.Models.Commit>
+
+@{
+    ViewBag.Title = "Undo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/Bases.js"></script>
+
+<h2>Select a query to undo</h2>
+<p>
+    @Html.ActionLink("Back", "Index", "Dbases")
+</p>
+
+@using (Html.BeginForm())
+{
+    <div class="col-md-5">
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <div class="col-md-offset-1">
+                <div id="error" class="text-danger"></div>
+            </div>
+            <div class="col-md-offset-2">
+                <table class="table">
+                    <tr>
+                        <th>
+                            Select
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.created_at)
+                        </th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.RadioButton("ID", item.ID, new { onClick = "analyze(" + item.ID + ")" })
+                            </td>
+                            <td>
+                                @{String url = "/Commits/Details/" + item.ID;}
+                                <a href=@url>@item.name</a>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.created_at)
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                <p>*Click name for details</p>
+            </div>
+        </div>
+    </div>
+}
+<div class="col-md-2"></div>
+
+@using (Html.BeginForm())
+{
+    <div class="col-md-5">
+        @Html.AntiForgeryToken()
+        <h3 id="LoginMessage"></h3>
+        <div class="form-horizontal">
+            <div class="col-md-offset-1">
+                <div id="commit"></div>
+                <div id="user" class="form-group"></div>
+                <div id="pass" class="form-group"></div>
+                <div class="text-right">
+                    <div id="submitLogin"></div>
+                </div>
+            </div>
+            </div>
+    </div>
+}
+
+        @if (ViewBag.Method == "post")
+        {
+            using (Html.BeginForm())
+            {
+                <div class="col-md-5">
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <div class="text-danger"><h4><b>WARNING, please read carefully</b></h4></div>
+                        @if (ViewBag.numChanged == 0)
+                        {
+                            <div class="col-md-offset-1">
+                                You are about to update <b><u>@ViewBag.Commit.numRows</u></b> records of the @ViewBag.Commit.table table in the @ViewBag.Commit.db.name database.
+                                If this is the change you wish to make, click Confirm.
+                            </div>
+
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <input type="submit" value="Cancel" formaction="@Url.Action("GotoIndex")" class=" btn btn-default" />
+                                    <input type="submit" value="Confirm" formaction="@Url.Action("Delete", "Commits", new { id = ViewBag.Commit.ID, unchanged = false })" class="btn btn-default" />
+                                </div>
+                            </div>
+                        }
+
+                        else
+                        {
+                            <div class="col-md-offset-1">
+                                We noticed that <b><u>@ViewBag.numChanged out of @ViewBag.Commit.numRows</u></b> of the records you wish to update have changed since this query was run. You may either:
+                                <p></p>
+                                <ul>
+                                    <li><b>Cancel</b></li>
+                                    <li><b>Undo All</b>: update all @ViewBag.Commit.numRows records</li>
+                                    <li><b>Reconcile</b>: update all @ViewBag.Commit.numRows records except the @ViewBag.numChanged that have changed</li>
+                                </ul>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <input type="submit" value="Cancel" formaction="@Url.Action("GotoIndex")" class=" btn btn-default" />
+                                    <input type="submit" value="Undo All" formaction="@Url.Action("Delete", "Commits", new { id = ViewBag.Commit.ID, unchanged = false})" class="btn btn-default" />
+                                    <input type="submit" value="Reconcile" formaction="@Url.Action("Delete", "Commits", new {id = ViewBag.Commit.ID, unchanged = true})" class="btn btn-default" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        }
+
+

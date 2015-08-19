@@ -1,0 +1,57 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+footer{
+    position:fixed;
+    bottom:0;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+section {
+        background: white;
+        color: white;
+        border-radius: 1em;
+        padding: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%) }
+
+table tr.noBorder th {border: 0; }
+table tr.noBorder td{border: 0; }
+
+.col-md-6 .vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+a.classname
+{
+    background: url(../Images/Oracle.jpg) no-repeat top left;
+     display: block;
+     text-indent: -9999px; /* hides the link text */
+}

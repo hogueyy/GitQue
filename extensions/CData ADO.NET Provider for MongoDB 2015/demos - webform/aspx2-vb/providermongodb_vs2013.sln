@@ -1,0 +1,34 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2013
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "aspx2-vb", ".", "{E2494620-E1BE-435B-9A79-45CD311E3913}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/vb"
+		Debug.AspNetCompiler.PhysicalPath = "..\vb\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\vb\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "true"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/vb"
+		Release.AspNetCompiler.PhysicalPath = "..\vb\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\vb\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "true"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1339"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2494620-E1BE-435B-9A79-45CD311E3913}.Debug|.NET.ActiveCfg = Debug|.NET
+		{E2494620-E1BE-435B-9A79-45CD311E3913}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

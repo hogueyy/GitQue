@@ -1,0 +1,89 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ButtonConnect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="ExecuteQuery" xml:space="preserve">
+    <value>Execute Query</value>
+  </data>
+  <data name="MaxRows" xml:space="preserve">
+    <value>Max Rows:</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>NOTE: These pages are simple demos, and by no means complete applications. They are intended to illustrate the usage of the CData MongoDB ADO.NET objects in a simple, straightforward way. What we are hoping to demonstrate is how simple it is to program with our tools. If you want to know more about them, or if you have questions, please visit &lt;a href="http://www.cdata.com"&gt;www.cdata.com&lt;/a&gt; or email to &lt;a href="mailto:support@cdata.com"&gt;support@cdata.com&lt;/a&gt;.</value>
+  </data>
+  <data name="Query" xml:space="preserve">
+    <value>Query:</value>
+  </data>
+  <data name="QueryBrowserDemo" xml:space="preserve">
+    <value>Query Browser Demo</value>
+  </data>
+  <data name="QueryBrowserDesc" xml:space="preserve">
+    <value>Connect to MongoDB and explore data in various tables.</value>
+  </data>
+  <data name="QueryBrowserDesc1" xml:space="preserve">
+    <value>This demo uses the CData ADO.NET Provider for MongoDB to show the tables available and the data in them. The demo also demonstrates how to databind to the DataGridView control.</value>
+  </data>
+  <data name="QueryTitle" xml:space="preserve">
+    <value>Query</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Tables:</value>
+  </data></root>

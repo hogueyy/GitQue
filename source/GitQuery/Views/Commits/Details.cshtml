@@ -1,0 +1,67 @@
+﻿@model GitQuery.Models.Commit
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Message</h2>
+
+<div>
+    <h4>@Html.ValueFor(model => model.name)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.created_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.db.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.db.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.db.server)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.db.server)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.table)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.table)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sqlQuery)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sqlQuery)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numRows)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numRows)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    <input type="button" value="Undo this query" onclick="location.href='@Url.Action("Undo", "Commits", Model.ID)'" class="btn btn-default" />
+    }
+</div>
